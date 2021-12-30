@@ -1,0 +1,12 @@
+.single {
+  display: flex;
+  padding: 20px 10px;
+}
+.single-side {
+  flex: 3;
+}
+@media screen and (max-width: 470px) {
+  .single-side {
+    display: none;
+  }
+}

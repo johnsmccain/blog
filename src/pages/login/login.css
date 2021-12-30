@@ -1,0 +1,29 @@
+.login {
+  background: linear-gradient(rgba(19, 41, 33, 0.7), rgba(82, 29, 32, 0.7)),
+    url(../../assets/login.jpg), no-repeat;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: calc(100vh - 50px);
+}
+.form-url {
+  position: absolute;
+  top: 0;
+}
+.log-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: crimson;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  text-transform: capitalize;
+}
+.log-btn:hover {
+  color: crimson;
+  background: #ccc;
+  border: 1px solid crimson;
+}

@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+}
+.side {
+  flex: 3;
+}
+
+@media screen and (max-width: 700px) {
+  .side {
+    display: none;
+  }
+}

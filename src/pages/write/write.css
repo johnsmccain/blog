@@ -1,0 +1,58 @@
+.write {
+  margin-top: 30px;
+}
+.w-img {
+  margin-left: 150px;
+  width: 70vw;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.w-form {
+  position: relative;
+}
+.wf-group {
+  margin-left: 150px;
+}
+.wf-addIcon {
+  border: 1px solid #708090;
+  border-radius: 50%;
+  color: #708090;
+  font-size: 20px;
+  cursor: pointer;
+}
+.wf-control {
+  font-size: 30px;
+  border: none;
+  width: 70vw;
+  color: #49525c;
+  padding: 20px;
+}
+.wf-control:focus {
+  outline: none;
+}
+.wf-control.text {
+  height: 70vh;
+  font-size: 20px;
+}
+.wf-btn {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  padding: 20px 30px;
+  background: teal;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  text-transform: capitalize;
+  border-radius: 15px;
+  border: none;
+}
+.wf-btn:hover {
+  color: teal;
+  background: #fff;
+  border: 2px solid teal;
+}
+.wf-control.text::-webkit-scrollbar {
+  width: 9px;
+}

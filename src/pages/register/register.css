@@ -1,0 +1,36 @@
+.register {
+  background: linear-gradient(rgba(11, 46, 11, 0.7), rgba(36, 10, 10, 0.9)),
+    url(../../assets/register.jpg) center;
+  background-size: cover;
+  height: calc(100vh - 50px);
+  display: grid;
+  position: relative;
+  place-items: center;
+}
+.register-wrapper {
+  min-width: 390px;
+  margin-top: -20px;
+}
+@media screen and (max-width: 470px) {
+  .register-wrapper {
+    min-width: 300px;
+    width: 100%;
+  }
+}
+.log-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: crimson;
+  color: #ccc;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  text-transform: capitalize;
+}
+.log-btn:hover {
+  color: crimson;
+  background: #ccc;
+  border: 1px solid crimson;
+}
