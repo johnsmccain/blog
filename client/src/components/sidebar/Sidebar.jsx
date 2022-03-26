@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Facebook,
   Telegram,
@@ -9,7 +9,16 @@ import {
 } from "@mui/icons-material";
 import profile from "../../assets/profile.jpg";
 import "./sidebar.css";
+import axios from "axios";
 function Sidebar() {
+  const [category, setCategory] = useState();
+  useEffect(() => {
+    const getCat = async () => {
+      axios.get("/categories").then((data) => console.log(data));
+    };
+    getCat();
+  }, [category]);
+
   return (
     <div className="sidebar">
       <div className="s-item">

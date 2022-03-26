@@ -6,7 +6,6 @@ const Form = ({ data, type, formType }) => {
   return (
     <form className="form">
       <h1 className="login-title">{formType}</h1>
-
       {data.map((inp, id) => (
         <Input
           className="input"
