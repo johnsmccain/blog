@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./singlePost.css";
 import { DeleteForever, Edit } from "@mui/icons-material";
 import home from "../../assets/no.jpg";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 
 function SinglePost() {
@@ -31,7 +31,9 @@ function SinglePost() {
           </h1>
           <div className="sp-info">
             <span className="sp-author">
-              Author: <strong>{post.username}</strong>
+              <Link to={`/?user=${post.username}`} className="link">
+                Author: <strong>{post.username}</strong>
+              </Link>
             </span>
             <span className="sp-date">
               {new Date(post.updatedAt).toDateString()}

@@ -4,6 +4,7 @@ import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./home.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 // class Home extends Component {
 //   constructor(props) {
 //     super(props);
@@ -39,9 +40,11 @@ import axios from "axios";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
+  const { search } = useLocation();
+  // console.log(search);
   useEffect(() => {
     const getPost = async () => {
-      await axios.get("/post").then((ps) => {
+      await axios.get("/post" + search).then((ps) => {
         const Posts = ps.data;
         setPosts(Posts);
         // console.log(ps.data);

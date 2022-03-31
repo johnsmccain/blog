@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../button/Button";
 import "./form.css";
 import Input from "./input/Input";
-const Form = ({ data, type, formType }) => {
+const Form = (props) => {
   return (
-    <form className="form">
-      <h1 className="login-title">{formType}</h1>
-      {data.map((inp, id) => (
+    <form
+      className="form"
+      onSubmit={(e) => {
+        props.handleSubmit(e);
+      }}
+    >
+      <h1 className="login-title">{props.formType}</h1>
+      {props.data.map((inp, id) => (
         <Input
           className="input"
           key={id}
@@ -14,9 +19,15 @@ const Form = ({ data, type, formType }) => {
           placeholder={inp.placeholder}
           forHtml={inp.forHtml}
           forLabel={inp.label}
+          setData={inp.setData}
         />
       ))}
-      <Button type="submit" color="primary" text={type} />
+      <Button type="submit" color="primary" text={props.type} />
+      {props.error && (
+        <span style={{ color: "red", textAlign: "center" }}>
+          Something went wrong!
+        </span>
+      )}
     </form>
   );
 };

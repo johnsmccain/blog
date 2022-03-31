@@ -10,6 +10,7 @@ import {
 import profile from "../../assets/profile.jpg";
 import "./sidebar.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function Sidebar() {
   const [category, setCategory] = useState();
   useEffect(() => {
@@ -36,7 +37,9 @@ function Sidebar() {
           {category &&
             category.map((cat, index) => (
               <li key={cat._id} className="s-list">
-                {cat.name}
+                <Link to={`/?cat=${cat.name}`} className="link">
+                  {cat.name}
+                </Link>
               </li>
             ))}
         </ul>
