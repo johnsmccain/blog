@@ -9,34 +9,39 @@ function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState();
+
   useEffect(() => {
     const getPost = async () => {
       await axios.get(`/post/${path}`).then((p) => setPost(p.data));
     };
     getPost();
   }, [path]);
-  console.log(post);
+
   return (
     <div className="singlePost">
-      <div className="sp-wrapper">
-        <img src={post.photo ? post.photo : home} alt="post" />
-        <h1 className="sp-title">
-          {post.title}
-          <div className="sp-icons">
-            <Edit className="sp-icon edit" />
-            <DeleteForever className="sp-icon" />
+      {post ? (
+        <div className="sp-wrapper">
+          <img src={post.photo ? post.photo : home} alt="post" />
+          <h1 className="sp-title">
+            {post.title && post.title}
+            <div className="sp-icons">
+              <Edit className="sp-icon edit" />
+              <DeleteForever className="sp-icon" />
+            </div>
+          </h1>
+          <div className="sp-info">
+            <span className="sp-author">
+              Author: <strong>{post.username}</strong>
+            </span>
+            <span className="sp-date">
+              {new Date(post.updatedAt).toDateString()}
+            </span>
           </div>
-        </h1>
-        <div className="sp-info">
-          <span className="sp-author">
-            Author: <strong>{post.username}</strong>
-          </span>
-          <span className="sp-date">
-            {new Date(post.updatedAt).toDateString()}
-          </span>
+          <p className="sp-lead">{post.desc}</p>
         </div>
-        <p className="sp-lead">{post.desc}</p>
-      </div>
+      ) : (
+        <div className="loading">Loading</div>
+      )}
     </div>
   );
 }
