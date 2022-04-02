@@ -10,6 +10,7 @@
 }
 .w-form {
   position: relative;
+  width: 100%;
 }
 .wf-group {
   margin-left: 150px;
@@ -32,13 +33,11 @@
   outline: none;
 }
 .wf-control.text {
-  height: 70vh;
+  height: 50vh;
   font-size: 20px;
 }
 .wf-btn {
-  position: absolute;
-  right: 30px;
-  top: 20px;
+  margin-left: 150px;
   padding: 20px 30px;
   background: teal;
   color: #fff;
@@ -55,4 +54,20 @@
 }
 .wf-control.text::-webkit-scrollbar {
   width: 9px;
+}
+@media screen and (max-width: 700px) {
+  .wf-group {
+    margin: 0;
+  }
+  .flex {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+  .wf-control {
+    width: 100%;
+  }
+  .wf-btn {
+    margin: 1rem auto;
+  }
 }

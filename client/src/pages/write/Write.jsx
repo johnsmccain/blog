@@ -43,7 +43,7 @@ function Write() {
         <img src={URL.createObjectURL(file)} alt="post" className="w-img" />
       )}
       <form className="w-form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="wf-group">
+        <div className="wf-group flex">
           <label htmlFor="plus" className="plusIcon">
             <Add className="wf-addIcon" />
           </label>
