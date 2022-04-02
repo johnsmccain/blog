@@ -1,26 +1,29 @@
-const Reducer = (state, action) => {
-  switch (action.type) {
-    case "LOGIN_START":
-      return {
-        user: null,
-        isFetching: true,
-        error: false,
-      };
-    case "LOGIN_SUCCESS":
-      return {
-        user: action.payload,
-        isFetching: false,
-        error: false,
-      };
-    case "LOGIN_FAILURE":
-      return {
-        user: null,
-        isFetching: false,
-        error: true,
-      };
-    default:
-      return state;
-  }
-};
+export const LoginStart = (userCredentials) => ({
+  type: "LOGIN_START",
+});
 
-export default Reducer;
+export const LoginSuccess = (user) => ({
+  type: "LOGIN_SUCCESS",
+  payload: user,
+});
+
+export const LoginFailure = () => ({
+  type: "LOGIN_FAILURE",
+});
+
+export const Logout = () => ({
+  type: "LOGOUT",
+});
+
+export const UpdateStart = (userCredentials) => ({
+  type: "UPDATE_START",
+});
+
+export const UpdateSuccess = (user) => ({
+  type: "UPDATE_SUCCESS",
+  payload: user,
+});
+
+export const UpdateFailure = () => ({
+  type: "UPDATE_FAILURE",
+});

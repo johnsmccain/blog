@@ -8,16 +8,16 @@ import "./login.css";
 
 function Login() {
   // const [dispatch] = useContext(Context);
-  const [email, setEmail] = useState();
+  const [username, setUsername] = useState();
   const [password, setPassword] = useState();
   const { dispatch, isFetching } = useContext(Context);
   const data = [
     {
-      text: "email",
-      placeholder: "Enter your Email",
-      forGtml: "Email",
-      label: "Email",
-      setData: setEmail,
+      text: "text",
+      placeholder: "Enter your Username",
+      forGtml: "Username",
+      label: "Username",
+      setData: setUsername,
     },
     {
       text: "password",
@@ -27,16 +27,21 @@ function Login() {
       setData: setPassword,
     },
   ];
+  console.log(username);
+  console.log(password);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios.post("/auth/login", { email, password });
-      console.log(res);
+      const res = await axios.post("/auth/login", { username, password });
+      console.log(res.data);
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (error) {
-      console.log(error);
+      dispatch({ type: "LOGIN_FAILURE" });
     }
   };
+  console.log(isFetching);
 
   return (
     <div className="login">

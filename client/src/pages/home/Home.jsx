@@ -51,7 +51,7 @@ const Home = () => {
       });
     };
     getPost();
-  }, [posts]);
+  }, [posts, search]);
   return (
     <div className="home">
       <Header />

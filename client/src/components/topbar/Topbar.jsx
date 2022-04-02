@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import profile from "../../assets/profile.jpg";
 import "./topbar.css";
 import { Link } from "react-router-dom";
 import { Search } from "@mui/icons-material";
+import { Context } from "../../context/Context";
 const Topbar = () => {
   const [show, setShow] = useState(false);
   function handleClick() {
     setShow(!show);
   }
-  const user = false;
+  // const user = false;
+  const { user, dispatch } = useContext(Context);
   return (
     <div className="topbar">
       <div className="topbar-right">
@@ -44,7 +46,14 @@ const Topbar = () => {
             </Link>
           </li>
           <li className="topbar-list">
-            <Link onClick={handleClick} to="/" className="topbar-link">
+            <Link
+              onClick={() => {
+                dispatch({ type: "LOGOUT" });
+                handleClick();
+              }}
+              to="/"
+              className="topbar-link"
+            >
               Logout
             </Link>
           </li>
@@ -70,7 +79,7 @@ const Topbar = () => {
 
         {user && (
           <img
-            src={profile}
+            src={user.profilePic ? user.profilePic : profile}
             alt="profile"
             className={`topbar-avatar ${show && "show topbar-profile"}`}
           />
