@@ -3,10 +3,10 @@ import "./post.css";
 import dev from "../../assets/no.jpg";
 import { Link } from "react-router-dom";
 export default function Post({ data }) {
-  console.log(data);
+  const PF = "http://localhost:5000/images/";
   return (
     <div className="post">
-      <img src={data.photo ? data.photo : dev} alt={data.title} />
+      <img src={data.photo ? PF + data.photo : dev} alt={data.title} />
       <div className="p-info">
         <div className="p-cats">
           {data.categories.map((cat) => (

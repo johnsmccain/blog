@@ -35,28 +35,26 @@ const Topbar = () => {
               About
             </Link>
           </li>
-          <li className="topbar-list">
-            <Link onClick={handleClick} to="/settings" className="topbar-link">
-              Settings
-            </Link>
-          </li>
+
           <li className="topbar-list" onClick={handleClick}>
             <Link to="/write" className="topbar-link">
               Write
             </Link>
           </li>
-          <li className="topbar-list">
-            <Link
-              onClick={() => {
-                dispatch({ type: "LOGOUT" });
-                handleClick();
-              }}
-              to="/"
-              className="topbar-link"
-            >
-              Logout
-            </Link>
-          </li>
+          {user && (
+            <li className="topbar-list">
+              <Link
+                onClick={() => {
+                  dispatch({ type: "LOGOUT" });
+                  handleClick();
+                }}
+                to="/"
+                className="topbar-link"
+              >
+                Logout
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
 
@@ -78,18 +76,24 @@ const Topbar = () => {
         <Search className="t-search-icon" />
 
         {user && (
-          <img
-            src={user.profilePic ? user.profilePic : profile}
-            alt="profile"
-            className={`topbar-avatar ${show && "show topbar-profile"}`}
-          />
+          <Link
+            to="settings "
+            className={`topbar-avatar link${show && "show topbar-profile"}`}
+          >
+            <img
+              src={user.profilePic ? user.profilePic : profile}
+              alt="profile"
+              className={`topbar-avatar ${show && "show topbar-profile"}`}
+            />
+          </Link>
         )}
       </div>
 
-      <div
-        className={`hamburger ${show && "shows "}`}
-        onClick={handleClick}
-      ></div>
+      <div className={`hamburger ${show && "shows "}`} onClick={handleClick}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   );
 };

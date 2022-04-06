@@ -21,6 +21,8 @@
 }
 .sp-icons {
   float: right;
+
+  margin-top: 5px;
 }
 .sp-icon {
   margin-right: 15px;
@@ -53,4 +55,37 @@
   text-transform: uppercase;
   font-family: serif;
   font-weight: 600;
+}
+.sp-lead--input {
+  border: none;
+  color: #666;
+  font-size: 18px;
+  line-height: 25px;
+  /* width: 100%; */
+  text-align: center;
+  border-bottom: 1px solid #666;
+}
+.sp-lead--textArea {
+  border: none;
+  color: #666;
+  border-bottom: 1px solid #666;
+
+  font-size: 18px;
+  line-height: 25px;
+  width: 100%;
+}
+
+.sp-lead--input:focus {
+  outline: none;
+}
+.update-btn {
+  width: 100px;
+  border: none;
+  background-color: teal;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-top: 20px;
 }

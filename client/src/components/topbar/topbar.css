@@ -164,4 +164,9 @@
     background: #000;
     cursor: pointer;
   }
+  .hamburger span {
+    width: 100%;
+    background: #fff;
+    height: 15px;
+  }
 }

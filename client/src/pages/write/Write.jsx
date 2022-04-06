@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-import dev from "../../assets/dev.gif";
+// import dev from "../../assets/dev.gif";
 import { Add } from "@mui/icons-material";
 import "./write.css";
 import { Context } from "../../context/Context";
@@ -31,8 +31,8 @@ function Write() {
     }
     try {
       const res = await axios.post("/post", newPost);
-      window.location.replace("/post/", res.data._id);
-      console.log("response" + res);
+      window.location.replace("/post/" + res.data._id);
+      // console.log("response" + res.data._id);
     } catch (error) {}
     console.log(newPost);
   };

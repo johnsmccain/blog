@@ -12,13 +12,13 @@ import "./sidebar.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 function Sidebar() {
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState([]);
+  const getCat = async () => {
+    await axios.get("/categories").then((data) => setCategory(data.data));
+  };
   useEffect(() => {
-    const getCat = async () => {
-      await axios.get("/categories").then((data) => setCategory(data.data));
-    };
     getCat();
-  }, [category]);
+  }, []);
 
   return (
     <div className="sidebar">
